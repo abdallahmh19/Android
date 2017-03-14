@@ -11,11 +11,11 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    int totalCorrect=0;
+    int totalCorrect = 0;
     Button submit;
-    EditText que3 , que5 ;
-    CheckBox choice1 ,choice2 , choice3 ;
-    RadioGroup Ques1 ,Ques2 ;
+    EditText que3, que5;
+    CheckBox choice1, choice2, choice3;
+    RadioGroup Ques1, Ques2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         Ques2 = (RadioGroup) findViewById(R.id.q2);
         submit = (Button) findViewById(R.id.submit);
 
-        Ques1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+       Ques1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup Qes, int checkedId) {
 
                 if (R.id.radio13 == Ques1.getCheckedRadioButtonId()) {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,20 +61,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-        private void CheckSubmittion (){
+    private void CheckSubmittion() {
 
 
-
-
-        if(que3.getText().toString().equals("even"))
+        if (que3.getText().toString().equalsIgnoreCase("even"))
             totalCorrect++;
 
         if (choice1.isChecked() && choice2.isChecked() && !choice3.isChecked())
             totalCorrect++;
-        if(Integer.parseInt(que5.getText().toString())==136)
-            totalCorrect++;
+        try {
+            if (Integer.parseInt(que5.getText().toString()) == 136)
+                totalCorrect++;
+        } catch (NumberFormatException nfe) {
+            nfe.getStackTrace();
+            que5.setError("The answer should be numeric");
+        }
     }
-    }
+}
 
 
 

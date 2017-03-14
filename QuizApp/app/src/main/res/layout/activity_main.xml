@@ -105,7 +105,7 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/q3"
-            android:text="Answer" />
+            android:hint="Answer" />
 
         <TextView
             android:text="Q4: check the correct statements  :"
@@ -145,7 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Answer"
+            android:hint="Answer"
             android:ems="10"
             android:id="@+id/q5" />
 
