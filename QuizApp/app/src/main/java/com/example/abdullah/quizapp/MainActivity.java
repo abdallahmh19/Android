@@ -30,30 +30,10 @@ public class MainActivity extends AppCompatActivity {
         Ques2 = (RadioGroup) findViewById(R.id.q2);
         submit = (Button) findViewById(R.id.submit);
 
-
-       Ques1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            public void onCheckedChanged(RadioGroup Qes, int checkedId) {
-
-                if (R.id.radio13 == Ques1.getCheckedRadioButtonId()) {
-                    totalCorrect++;
-                }
-            }
-        });
-
-        Ques2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup Qes, int checkedId) {
-
-                if (R.id.radio23 == Ques2.getCheckedRadioButtonId()) {
-                    totalCorrect++;
-                }
-            }
-        });
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CheckSubmittion();
+                checkSubmittion();
                 Toast.makeText(MainActivity.this, "Total correct answer " + totalCorrect + " out of 5", Toast.LENGTH_LONG).show();
                 totalCorrect = 0;
             }
@@ -61,8 +41,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void CheckSubmittion() {
+    private void checkSubmittion() {
 
+        if (R.id.radio13 == Ques1.getCheckedRadioButtonId()) {
+            totalCorrect++;
+        }
+        if (R.id.radio23 == Ques2.getCheckedRadioButtonId()) {
+            totalCorrect++;
+        }
 
         if (que3.getText().toString().equalsIgnoreCase("even"))
             totalCorrect++;
