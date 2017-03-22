@@ -17,9 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlayNowActivity" />
-        <activity android:name=".PlayListActivity" />
-        <activity android:name=".StoreActivity"></activity>
+        <activity android:name=".PlayNowActivity"
+            android:label="@string/PlayNow"/>
+        <activity android:name=".PlayListActivity"
+            android:label="@string/PlayList"/>
+        <activity android:name=".StoreActivity"
+            android:label="@string/Store"/>
     </application>
 
 </manifest>
