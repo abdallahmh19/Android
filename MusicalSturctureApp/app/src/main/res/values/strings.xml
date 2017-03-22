@@ -6,4 +6,6 @@
     <string name="PlayListText">This activity contains the play list musics</string>
     <string name="StoreText">Welcome to our store Musics Store</string>
     <string name="NowPlayText">Artist name: \nMusic Name:</string>
+    <string name="ListViewDesc"> This activity needs android.widget.ListAdapter library to implement ListView </string>
+    <string name="IntentDesc"> This activity needs android.content.Intent to implement the intent </string>
 </resources>

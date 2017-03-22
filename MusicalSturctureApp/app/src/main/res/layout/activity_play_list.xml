@@ -19,7 +19,16 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
-            <ListView
+            <TextView
+             android:text="@string/ListViewDesc"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/textView2"
+             android:textColor="@color/white"
+             android:textSize="14sp"
+             android:textStyle="bold"/>
+
+    <ListView
             android:layout_width="match_parent"
             android:id="@+id/PlayList"
             android:layout_height="500dp" >
