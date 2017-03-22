@@ -14,13 +14,22 @@
             android:text="@string/StoreText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView3"
+            android:id="@+id/StoreDesc"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_alignParentEnd="true" />
 
-        <ListView
+    <TextView
+        android:text="@string/ListViewDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/Storelist"
