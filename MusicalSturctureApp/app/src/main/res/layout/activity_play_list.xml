@@ -10,6 +10,15 @@
             android:id="@+id/activity_play_list"
             android:orientation="vertical">
 
+            <TextView
+                android:text="@string/PlayListText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/PlayListText"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
             <ListView
             android:layout_width="match_parent"
             android:id="@+id/PlayList"

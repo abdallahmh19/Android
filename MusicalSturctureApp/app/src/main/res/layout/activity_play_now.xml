@@ -28,8 +28,8 @@
             android:id="@+id/imageView" />
 
         <TextView
-            android:text="Artist name: \nMusic Name:"
-            android:textSize="25sp"
+            android:text="@string/NowPlayText"
+            android:textSize="20sp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:layout_width="match_parent"

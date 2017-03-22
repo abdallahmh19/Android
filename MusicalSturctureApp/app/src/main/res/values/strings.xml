@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MusicalSturctureApp</string>
+    <string name="PlayList">Play List</string>
+    <string name="PlayNow">Now Playing</string>
+    <string name="Store">Store</string>
+    <string name="PlayListText">This activity contains the play list musics</string>
+    <string name="StoreText">Welcome to our store Musics Store</string>
+    <string name="NowPlayText">Artist name: \nMusic Name:</string>
 </resources>
