@@ -2,32 +2,32 @@ package com.example.abdullah.tourguideapp;
 
 public class Word {
 
-    private String name;
-    private String location;
+    private int nameID;
+    private int locationID;
     private int imageID;
     private static final int NO_IMAGE_PROVIDED = 0;
 
-    public Word(String name, String location, int imageResourceID) {
-        this.name = name;
-        this.location = location;
+    public Word(int nameID, int locationID, int imageResourceID) {
+        this.nameID = nameID;
+        this.locationID = locationID;
         imageID =imageResourceID;
 
     }
-    public Word(String name, String location) {
-        this.name = name;
-        this.location = location;
+    public Word(int nameID, int locationID) {
+        this.nameID = nameID;
+        this.locationID = locationID;
 
 
     }
 
-    public String getName() {
+    public int getNameID() {
 
-        return name;
+        return nameID;
     }
 
-    public String getLocation() {
+    public int getLocationID() {
 
-        return location;
+        return locationID;
     }
 
     public int getImageID() {

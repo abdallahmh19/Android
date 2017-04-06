@@ -79,46 +79,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.cities) {
         final ArrayList<Word> cities = new ArrayList<Word>();
 
-            cities.add(new Word ("Makkah","Kingdom of Saudi Arabia" ,R.drawable.makkah));
-            cities.add(new Word ("Dubai","United Arab Emirates" ,R.drawable.dubai));
-            cities.add(new Word ("Doha","Qatar" ,R.drawable.doha));
-            cities.add(new Word ("Riyadh","Kingdom of Saudi Arabia" ,R.drawable.riyadh));
-            cities.add(new Word ("London","United Kingdom" ,R.drawable.london));
-            cities.add(new Word ("Washington","United States" ,R.drawable.washington));
-            cities.add(new Word ("Berlin","Germany" ,R.drawable.berlin));
+            cities.add(new Word (R.string.city1_name,R.string.city1_location ,R.drawable.makkah));
+            cities.add(new Word (R.string.city2_name,R.string.city2_location,R.drawable.dubai));
+            cities.add(new Word (R.string.city3_name,R.string.city3_location ,R.drawable.doha));
+            cities.add(new Word (R.string.city4_name,R.string.city4_location,R.drawable.riyadh));
+            cities.add(new Word (R.string.city5_name,R.string.city5_location ,R.drawable.london));
+            cities.add(new Word (R.string.city6_name,R.string.city6_location,R.drawable.washington));
+            cities.add(new Word (R.string.city7_name,R.string.city7_location ,R.drawable.berlin));
 
             WordAdapter citiesAdapter= new WordAdapter(this, cities, R.color.cities_colors);
             content.setAdapter(citiesAdapter);
         }
+
         else if (id== R.id.restaurants){
         final ArrayList<Word> rest = new ArrayList<Word>();
-            rest.add(new Word("The Globe" ,"Al Faisaliah Tower , Riyadh KSA",R.drawable.theglobe));
-            rest.add(new Word("Spazio" ,"Al Mamlakah Tower , Riyadh KSA",R.drawable.spazio));
-            rest.add(new Word("The Cheesecake Factory" ,"Dubai Mall , Dubai UAE",R.drawable.cheesecakefactory));
-            rest.add(new Word("Social House" ,"Dubai Mall , Dubai UAE",R.drawable.socialhouse));
+            rest.add(new Word(R.string.rest1_name ,R.string.rest1_location,R.drawable.theglobe));
+            rest.add(new Word(R.string.rest2_name ,R.string.rest2_location,R.drawable.spazio));
+            rest.add(new Word(R.string.rest3_name,R.string.rest3_location,R.drawable.cheesecakefactory));
+            rest.add(new Word(R.string.rest4_name ,R.string.rest4_location,R.drawable.socialhouse));
             WordAdapter restsAdapter= new WordAdapter(this, rest, R.color.restaurants_color);
             content.setAdapter(restsAdapter);
         }
         else if (id == R.id.events){
         final ArrayList<Word> events = new ArrayList<Word>();
-            events.add(new Word ("Misk Art from 4-8 April","Banban , Riyadh",R.drawable.event0));
-            events.add(new Word ("Event 2","Ritz-Carilton, Riyadh",R.drawable.event1));
-            events.add(new Word ("PMP Training","Ritz-Carilton , Riyadh",R.drawable.event2));
-            events.add(new Word ("Art","Olaya , Riyadh"));
-            events.add(new Word ("Management","Olaya , Riyadh",R.drawable.event4));
-            events.add(new Word ("Drawing","Olaya , Riyadh",R.drawable.event5));
+            events.add(new Word (R.string.event1_name,R.string.event1_location,R.drawable.event0));
+            events.add(new Word (R.string.event2_name,R.string.event2_location,R.drawable.event1));
+            events.add(new Word (R.string.event3_name,R.string.event3_location,R.drawable.event2));
+            events.add(new Word (R.string.event4_name,R.string.event4_location));
+            events.add(new Word (R.string.event5_name,R.string.event5_location,R.drawable.event4));
+            events.add(new Word (R.string.event6_name,R.string.event6_location,R.drawable.event5));
             WordAdapter eventsAdapter= new WordAdapter(this, events, R.color.events_color);
             content.setAdapter(eventsAdapter);
         }
         else if (id==R.id.places){
             final ArrayList<Word> places = new ArrayList<Word>();
-            places.add(new Word("Madain Saleh","Al Ula, KSA",R.drawable.salih));
-            places.add(new Word("Farasan Island", "Jazan, KSA",R.drawable.farasan));
-            places.add(new Word("Al Bujairi square", "Riyadh, KSA",R.drawable.bujiri));
-            places.add(new Word("Souq Waqif","Doha, Qatar",R.drawable.souq));
-            places.add(new Word("Burj Khalifa","Dubai, UAE",R.drawable.burj));
-            places.add(new Word ("Global Village","Dubai, UAE",R.drawable.gv));
-            places.add(new Word("Aquaventure Waterpark","Dubai, UAE",R.drawable.aquaventurewaterpark));
+            places.add(new Word(R.string.place1_name,R.string.place1_location,R.drawable.salih));
+            places.add(new Word(R.string.place2_name,R.string.place2_location,R.drawable.farasan));
+            places.add(new Word(R.string.place3_name,R.string.place3_location,R.drawable.bujiri));
+            places.add(new Word(R.string.place4_name,R.string.place4_location,R.drawable.souq));
+            places.add(new Word(R.string.place5_name,R.string.place5_location,R.drawable.burj));
+            places.add(new Word(R.string.place6_name,R.string.place6_location,R.drawable.gv));
+            places.add(new Word(R.string.place7_name,R.string.place7_location,R.drawable.aquaventurewaterpark));
 
             WordAdapter placesAdapter= new WordAdapter(this, places, R.color.places_color);
             content.setAdapter(placesAdapter);
