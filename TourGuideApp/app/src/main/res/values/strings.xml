@@ -3,6 +3,58 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
+
+    <string name="city1_name">Makkah</string>
+    <string name="city1_location">Kingdom of Saudi Arabia</string>
+    <string name="city2_name">Dubai</string>
+    <string name="city2_location">United Arab Emirates</string>
+    <string name="city3_name">Doha</string>
+    <string name="city3_location">Qatar</string>
+    <string name="city4_name">Riyadh</string>
+    <string name="city4_location">Kingdom of Saudi Arabia</string>
+    <string name="city5_name">London</string>
+    <string name="city5_location">United Kingdom</string>
+    <string name="city6_name">Washington</string>
+    <string name="city6_location">United States</string>
+    <string name="city7_name">Berlin</string>
+    <string name="city7_location">Germany</string>
+
+    <string name="rest1_name">The Globe</string>
+    <string name="rest1_location">Al Faisaliah Tower , Riyadh KSA</string>
+    <string name="rest2_name">Spazio</string>
+    <string name="rest2_location">"Al Mamlakah Tower , Riyadh KSA</string>
+    <string name="rest3_name">The Cheesecake Factory</string>
+    <string name="rest3_location">Dubai Mall, Dubai UAE</string>
+    <string name="rest4_name">Social House</string>
+    <string name="rest4_location">Dubai Mall, Dubai UAE</string>
+
+    <string name="event1_name">Misk Art from 4-8 April</string>
+    <string name="event1_location">Banban, Riyadh</string>
+    <string name="event2_name">Event 2</string>
+    <string name="event2_location">Ritz-Carilton, Riyadh</string>
+    <string name="event3_name">PMP Training</string>
+    <string name="event3_location">Ritz-Carilton, Riyadh</string>
+    <string name="event4_name">Art</string>
+    <string name="event4_location">Olaya, Riyadh</string>
+    <string name="event5_name">Management</string>
+    <string name="event5_location">Olaya, Riyadh</string>
+    <string name="event6_name">Drawing</string>
+    <string name="event6_location">Olaya, Riyadh</string>
+
+    <string name="place1_name">Madain Saleh"l</string>
+    <string name="place1_location">Al Ula, KSA</string>
+    <string name="place2_name">Farasan Island</string>
+    <string name="place2_location">Jazan, KSA</string>
+    <string name="place3_name">Al Bujairi square</string>
+    <string name="place3_location">Riyadh, KSA</string>
+    <string name="place4_name">Souq Waqif</string>
+    <string name="place4_location">Doha, Qatar</string>
+    <string name="place5_name">Burj Khalifa</string>
+    <string name="place5_location">Dubai, UAE</string>
+    <string name="place6_name">Global Village</string>
+    <string name="place6_location">Dubai, UAE</string>
+    <string name="place7_name">Aquaventure Waterpark</string>
+    <string name="place7_location">Dubai, UAE</string>
+
 </resources>

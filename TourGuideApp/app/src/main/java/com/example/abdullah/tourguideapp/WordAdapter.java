@@ -28,10 +28,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
         Word word_item = getItem(position);
 
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.name);
-        nameTextView.setText(word_item.getName());
+        nameTextView.setText(word_item.getNameID());
 
         TextView locationTextView = (TextView) listItemView.findViewById(R.id.location);
-        locationTextView.setText(word_item.getLocation());
+        locationTextView.setText(word_item.getLocationID());
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
         if(word_item.hasImage()) {
