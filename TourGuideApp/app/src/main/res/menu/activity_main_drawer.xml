@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/restaurants"
+            android:icon="@drawable/restaurants"
+            android:title="Restaurants" />
+        <item
+            android:id="@+id/cities"
+            android:icon="@drawable/citys"
+            android:title="Cities" />
+        <item
+            android:id="@+id/places"
+            android:icon="@drawable/places"
+            android:title="Places" />
+        <item
+            android:id="@+id/events"
+            android:icon="@drawable/evens"
+            android:title="Events" />
+    </group>
+
+</menu>
