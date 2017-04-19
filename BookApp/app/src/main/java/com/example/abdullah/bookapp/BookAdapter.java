@@ -12,7 +12,7 @@ import java.util.List;
 public class BookAdapter  extends ArrayAdapter<Book> {
 
 
-    private List<Book> Booklist = new ArrayList<Book>();
+    private List<Book> bookList = new ArrayList<Book>();
 
     public BookAdapter(Activity context, ArrayList<Book> Books) {
         super(context, 0, Books);
@@ -37,7 +37,7 @@ public class BookAdapter  extends ArrayAdapter<Book> {
     }
 
     public void setBooks (List<Book> books){
-        Booklist.addAll(books);
+        bookList = books;
         notifyDataSetChanged();
     }
 

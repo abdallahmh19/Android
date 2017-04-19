@@ -119,11 +119,15 @@ public class Connection {
                 String title = volumeInfo.getString("title");
                 book.setTitle(title);
 
-                JSONArray authors = volumeInfo.getJSONArray("authors");
-                String author = authors.getString(0);
-                System.out.println("The author of book "+ (i+1) +"is :"+ author);
-                book.setAuthor(author);
-
+                if(volumeInfo.has("authors")) {
+                    JSONArray authors = volumeInfo.getJSONArray("authors");
+                    String author = authors.getString(0);
+                    System.out.println("The author of book " + (i + 1) + "is :" + author);
+                    book.setAuthor(author);
+                }
+                else {
+                    book.setAuthor("Unknown author");
+                }
                 books.add(book);
             }
             } catch (JSONException e1) {
