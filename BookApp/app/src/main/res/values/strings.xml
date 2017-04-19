@@ -3,5 +3,6 @@
     <string name="search">Search</string>
     <string name="textHint">Enter the title here ...</string>
     <string name="checkConn">please check the internet connection </string>
+    <string name="noBook" >The book not found</string>
 
 </resources>

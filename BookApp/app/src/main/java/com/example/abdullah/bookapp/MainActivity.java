@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,11 +25,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public String url ="https://www.googleapis.com/books/v1/volumes?q=%s&maxResults=%d" ;
     EditText title;
     String finalURL;
+    TextView emptylist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        emptylist=(TextView)findViewById(R.id.empty_list_view);
         title  = (EditText)findViewById(R.id.titelEditText);
         Button search = (Button)findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             public void onClick(View v) {
                 if (isOnline()) {
                 finalURL = String.format(url, title.getText().toString(), 5);
+                    getSupportLoaderManager().restartLoader(1, null, MainActivity.this).forceLoad();
                 BookAsyncTask con = new BookAsyncTask();
                 con.execute(url);
                 } else {
@@ -63,9 +66,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
         bookApt.clear();
-        if (data!=null && !data.isEmpty())
-        bookApt.addAll(data);
-
+        if (data!=null && !data.isEmpty()) {
+            emptylist.setVisibility(View.GONE);
+            bookApt.addAll(data);
+        }
+        else {
+            emptylist.setVisibility(View.VISIBLE);
+            emptylist.setText(R.string.noBook);
+        }
     }
 
     @Override
@@ -102,10 +110,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
 
             if (data != null && !data.isEmpty()) {
+                emptylist.setVisibility(View.GONE);
                 bookApt.addAll(data);
             }
             else {
-                Toast.makeText(MainActivity.this , "There is no Book "+title.getText().toString(),Toast.LENGTH_LONG).show();
+                emptylist.setVisibility(View.VISIBLE);
+                emptylist.setText(R.string.noBook);
             }
         }
     }
