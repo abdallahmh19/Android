@@ -25,22 +25,21 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public String url ="https://www.googleapis.com/books/v1/volumes?q=%s&maxResults=%d" ;
     EditText title;
     String finalURL;
-    TextView emptylist;
+    TextView emptyList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        emptylist=(TextView)findViewById(R.id.empty_list_view);
+        emptyList=(TextView)findViewById(R.id.empty_list_view);
         title  = (EditText)findViewById(R.id.titelEditText);
         Button search = (Button)findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isOnline()) {
-                finalURL = String.format(url, title.getText().toString(), 5);
+                finalURL = String.format(url,title.getText().toString(),5);
                     getSupportLoaderManager().restartLoader(1, null, MainActivity.this).forceLoad();
-                BookAsyncTask con = new BookAsyncTask();
-                con.execute(url);
+                    new BookLoader(MainActivity.this ,finalURL);
                 } else {
                     Toast.makeText(MainActivity.this,R.string.checkConn,Toast.LENGTH_LONG).show();
                 }
@@ -67,12 +66,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
         bookApt.clear();
         if (data!=null && !data.isEmpty()) {
-            emptylist.setVisibility(View.GONE);
+            emptyList.setVisibility(View.GONE);
             bookApt.addAll(data);
         }
         else {
-            emptylist.setVisibility(View.VISIBLE);
-            emptylist.setText(R.string.noBook);
         }
     }
 
@@ -83,42 +80,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
 
-    private class BookAsyncTask extends AsyncTask<String, Void, List<Book>> {
-
-        private ProgressDialog progressDialog;
-
-        @Override
-        protected List<Book> doInBackground(String... strings) {
-            List<Book> result = Connection.bookData(finalURL);
-            return result;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            progressDialog = new ProgressDialog(MainActivity.this);
-            progressDialog.setMessage("searching...");
-            progressDialog.setCancelable(false);
-            progressDialog.show();
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onPostExecute(List<Book> data) {
-            bookApt.clear();
-            if (progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-
-            if (data != null && !data.isEmpty()) {
-                emptylist.setVisibility(View.GONE);
-                bookApt.addAll(data);
-            }
-            else {
-                emptylist.setVisibility(View.VISIBLE);
-                emptylist.setText(R.string.noBook);
-            }
-        }
-    }
     public boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();

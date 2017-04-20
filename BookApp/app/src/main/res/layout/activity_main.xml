@@ -35,7 +35,7 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/bookView"
         android:paddingTop="20dp"
         android:paddingRight="10dp"
@@ -46,7 +46,10 @@
         android:id="@+id/empty_list_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="List view is empty"
-        android:visibility="gone"/>
+        android:text="@string/emptyListTextView"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        />
 
 </LinearLayout >

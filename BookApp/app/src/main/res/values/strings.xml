@@ -4,5 +4,6 @@
     <string name="textHint">Enter the title here ...</string>
     <string name="checkConn">please check the internet connection </string>
     <string name="noBook" >The book not found</string>
+    <string name="emptyListTextView">Please enter the title of the book in the text field the click search</string>
 
 </resources>
