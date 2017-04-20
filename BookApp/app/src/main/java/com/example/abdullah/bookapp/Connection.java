@@ -26,7 +26,7 @@ public class Connection {
 
     public static final String LOG_TAG = Connection.class.getSimpleName();
 
-    private Connection() {
+    public Connection() {
     }
 
     public static List<Book> bookData(String requestUrl){
