@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         final ListView bookListView = (ListView)findViewById(R.id.bookView);
         bookApt = new BookAdapter(this, new ArrayList<Book>());
-        bookListView.setAdapter(bookApt);
+        bookListView.setEmptyView(emptyList);
         if (isOnline()) {
             getSupportLoaderManager().initLoader(1, null, this).forceLoad();
         }
@@ -65,11 +65,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
         bookApt.clear();
-        if (data!=null && !data.isEmpty()) {
+        if (data!=null && ! data.isEmpty()) {
             emptyList.setVisibility(View.GONE);
             bookApt.addAll(data);
         }
-        else {
+        else{
+            emptyList.setVisibility(View.VISIBLE);
+            emptyList.setText(R.string.noBook);
         }
     }
 
