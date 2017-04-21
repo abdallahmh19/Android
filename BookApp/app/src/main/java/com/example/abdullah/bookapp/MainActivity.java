@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     String finalURL;
     TextView emptyList;
     ListView bookListView;
+    int counter=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                counter++;
                 if (isOnline()) {
                 finalURL = String.format(url,title.getText().toString(),5);
                     getSupportLoaderManager().restartLoader(1, null, MainActivity.this).forceLoad();
@@ -71,10 +73,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             bookApt.addAll(data);
             bookListView.setVisibility(View.VISIBLE);
         }
-        else{
+        else if(counter>0) {
             bookListView.setVisibility(View.INVISIBLE);
             emptyList.setVisibility(View.VISIBLE);
             emptyList.setText(R.string.noBook);
+        }else{
+            bookListView.setVisibility(View.INVISIBLE);
+            emptyList.setVisibility(View.VISIBLE);
+            emptyList.setText(R.string.emptyListTextView);
         }
     }
     @Override
