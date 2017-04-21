@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     EditText title;
     String finalURL;
     TextView emptyList;
+    ListView bookListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +47,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
 
-        final ListView bookListView = (ListView)findViewById(R.id.bookView);
+        bookListView = (ListView)findViewById(R.id.bookView);
         bookApt = new BookAdapter(this, new ArrayList<Book>());
-        bookListView.setEmptyView(emptyList);
+        bookListView.setAdapter(bookApt);
         if (isOnline()) {
             getSupportLoaderManager().initLoader(1, null, this).forceLoad();
         }
@@ -68,20 +69,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (data!=null && ! data.isEmpty()) {
             emptyList.setVisibility(View.GONE);
             bookApt.addAll(data);
+            bookListView.setVisibility(View.VISIBLE);
         }
         else{
+            bookListView.setVisibility(View.INVISIBLE);
             emptyList.setVisibility(View.VISIBLE);
             emptyList.setText(R.string.noBook);
         }
     }
-
     @Override
     public void onLoaderReset(Loader<List<Book>> loader) {
         bookApt.clear();
         bookApt.setBooks(new ArrayList<Book>());
+
     }
-
-
     public boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
