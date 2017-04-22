@@ -11,8 +11,8 @@ import java.util.List;
 
 public class BookAdapter  extends ArrayAdapter<Book> {
 
-
-    private List<Book> bookList = new ArrayList<Book>();
+    // it used in setBooks method
+    private List<Book> bookList = new ArrayList<>();
 
     public BookAdapter(Activity context, ArrayList<Book> Books) {
         super(context, 0, Books);
