@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="sectionName">Section Name</string>
+    <string name="webTitle">Web Title</string>
+    <string name="publishDate">Publish Date</string>
+    <string name="search">Search</string>
+    <string name="textHint">Enter the title here ...</string>
+    <string name="checkConn">please check the internet connection </string>
+    <string name="noBook" >The news about this title not found</string>
+    <string name="emptyListTextView">Please enter the category of the news in the text field then click search</string>
+
+</resources>
