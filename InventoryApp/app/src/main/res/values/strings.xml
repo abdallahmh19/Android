@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">InventoryApp</string>
+    <string name="id">Product Id</string>
+    <string name="name">Product Name</string>
+    <string name="price"> Product Price</string>
+    <string name="quantity"> Quantity </string>
+    <string name="track">TRACK</string>
+    <string name="mainText">Please choose one of products to Edit or Delete</string>
+    <string name="add_product"> Add Product</string>
+    <string name="emptyView">There is no products please click on the add product button if you wan to add</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+</resources>
