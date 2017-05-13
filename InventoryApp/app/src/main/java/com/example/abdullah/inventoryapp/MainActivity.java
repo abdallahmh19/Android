@@ -15,25 +15,23 @@ import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    InventoryDbHelper db ;
+     ListView products ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        InventoryDbHelper db = new InventoryDbHelper(MainActivity.this);
-        final ListView products = (ListView)findViewById(R.id.products);
 
-
-        try {
+            db = new InventoryDbHelper(MainActivity.this);
+            products = (ListView)findViewById(R.id.products);
+            products.setEmptyView(findViewById(R.id.emptyView));
             ArrayList<Product> prods = db.getAllData();
             InventoryAdapter Adp = new InventoryAdapter(MainActivity.this, prods);
             products.setAdapter(Adp);
-        }
-        catch (Exception e ) {
-            Log.e(" In Main Activity " ,e.toString());
-            products.setEmptyView(findViewById(R.id.emptyView));
-        }
+
+
+
 
         Button addProduct = (Button)findViewById(R.id.addProduct);
         addProduct.setOnClickListener(new View.OnClickListener() {
@@ -49,12 +47,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Product product = (Product) adapterView.getAdapter().getItem(i);
+
+                //MainActivity.this.finish();
                 Intent intent = new Intent(MainActivity.this, ProductInfoActivity.class);
                 intent.putExtra("MyClass",  product);
                 startActivity(intent);
-                MainActivity.this.finish();
+
 
             }
         });
     }
+
 }
