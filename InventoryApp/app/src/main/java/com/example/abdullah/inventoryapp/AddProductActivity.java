@@ -60,6 +60,7 @@ public class AddProductActivity extends AppCompatActivity {
                 db.insertData(productName, quantity, price, image);
                 Intent mainIntent = new Intent(AddProductActivity.this, MainActivity.class);
                 startActivity(mainIntent);
+                AddProductActivity.this.finish();
                 String message = "Product Added!";
                 Toast.makeText(AddProductActivity.this, message, Toast.LENGTH_SHORT).show();
             }

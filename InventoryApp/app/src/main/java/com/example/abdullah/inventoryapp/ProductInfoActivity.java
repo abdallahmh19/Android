@@ -35,6 +35,7 @@ public class ProductInfoActivity extends AppCompatActivity {
                 if (db.deleteData(product.getId())) {
                     Intent intent = new Intent(ProductInfoActivity.this, MainActivity.class);
                     startActivity(intent);
+                    ProductInfoActivity.this.finish();
                     Toast.makeText(ProductInfoActivity.this, "The product has been deleted!", Toast.LENGTH_SHORT).show();
                 }else
                 Toast.makeText(ProductInfoActivity.this, " deletion failed ", Toast.LENGTH_SHORT).show();
@@ -51,6 +52,7 @@ public class ProductInfoActivity extends AppCompatActivity {
                     Intent intent = new Intent(ProductInfoActivity.this, MainActivity.class);
                     Toast.makeText(ProductInfoActivity.this, "The Product Info has been Updated", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
+                    ProductInfoActivity.this.finish();
 
             }
         });

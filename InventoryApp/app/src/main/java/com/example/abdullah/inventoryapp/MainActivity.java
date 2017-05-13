@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -14,33 +15,26 @@ import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
-    public class Loader extends AsyncTask {
 
-        @Override
-        protected ArrayList<Product> doInBackground(Object[] params) {
-            InventoryDbHelper db = new InventoryDbHelper(MainActivity.this);
-            return  db.getAllData();
-        }
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        InventoryDbHelper db = new InventoryDbHelper(MainActivity.this);
         final ListView products = (ListView)findViewById(R.id.products);
-        products.setEmptyView(findViewById(R.id.emptyView));
-       Loader loader = new Loader();
 
-        ArrayList<Product> prods = null;
+
         try {
-            prods = (ArrayList<Product>) loader.execute().get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+            ArrayList<Product> prods = db.getAllData();
+            InventoryAdapter Adp = new InventoryAdapter(MainActivity.this, prods);
+            products.setAdapter(Adp);
         }
-        InventoryAdapter Adp = new InventoryAdapter(MainActivity.this , prods);
-        products.setAdapter(Adp);
+        catch (Exception e ) {
+            Log.e(" In Main Activity " ,e.toString());
+            products.setEmptyView(findViewById(R.id.emptyView));
+        }
+
         Button addProduct = (Button)findViewById(R.id.addProduct);
         addProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent (MainActivity.this,AddProductActivity.class);
                 startActivity(intent);
+                MainActivity.this.finish();
             }
         });
         products.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -57,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, ProductInfoActivity.class);
                 intent.putExtra("MyClass",  product);
                 startActivity(intent);
+                MainActivity.this.finish();
 
             }
         });
