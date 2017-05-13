@@ -10,4 +10,6 @@
     <string name="emptyView">There is no products please click on the add product button if you wan to add</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+    <string name="sale">Sale</string>
+    <string name="orderMore"> Order More</string>
 </resources>

@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:layout_margin="5dp"
         android:id="@+id/name"
         android:inputType="text"/>
 
@@ -22,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:layout_margin="5dp"
         android:id="@+id/price"
         android:inputType="number"
         />
@@ -29,19 +31,29 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:layout_margin="5dp"
         android:id="@+id/quantity"
         android:inputType="number"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_margin="5dp"
         android:id="@+id/save"
         android:text="@string/save"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_margin="5dp"
         android:id="@+id/delete"
         android:text="@string/delete"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:id="@+id/orderMore"
+        android:text="@string/orderMore"/>
 
 </LinearLayout>

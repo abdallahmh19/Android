@@ -96,6 +96,14 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
         return productList;
     }
 
+
+    public Cursor getData(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("SELECT * from " + InventoryContract.ProductEntry.TABLE_NAME +
+                " WHERE id=" + id + "", null);
+        return result;
+    }
+
     public boolean deleteData(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(InventoryContract.ProductEntry.TABLE_NAME, "id=?", new String[]{""+id}) > 0;
