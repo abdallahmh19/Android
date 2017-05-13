@@ -31,7 +31,7 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_PRODUCT_TABLE =
                 " CREATE TABLE " + InventoryContract.ProductEntry.TABLE_NAME +"("
                         +InventoryContract.ProductEntry.COLUMN_Id+" INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        +InventoryContract.ProductEntry.COLUMN_NAME +"  TEXT UNIQUE NOT NULL, "
+                        +InventoryContract.ProductEntry.COLUMN_NAME +"  TEXT NOT NULL, "
                         +InventoryContract.ProductEntry.COLUMN_PRICE+" INTEGER NOT NULL,"
                         +InventoryContract.ProductEntry.COLUMN_QUANTITY +" INTEGER NOT NULL,"
                         +InventoryContract.ProductEntry.COLUMN_IMAGE +" BLOB NOT NULL"+
@@ -50,9 +50,6 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void deleteDatabase(Context context) {
-        context.deleteDatabase(DATABASE_NAME);
-    }
 
     public boolean insertData (String name , int quantity  ,int price , byte[] image){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -73,7 +70,7 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
         values.put(InventoryContract.ProductEntry.COLUMN_QUANTITY,product.getQuantity());
         values.put(InventoryContract.ProductEntry.COLUMN_IMAGE,product.getImage());
 
-        return db.update(InventoryContract.ProductEntry.TABLE_NAME,values,"_id= ?",new String[]{""+ product.getId()});
+        return db.update(InventoryContract.ProductEntry.TABLE_NAME,values,"id= ?",new String[]{""+ product.getId()});
 
     }
     public ArrayList<Product> getAllData() {
@@ -81,23 +78,26 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor getList = db.rawQuery("SELECT * FROM " + InventoryContract.ProductEntry.TABLE_NAME, null);
-        getList.moveToFirst();
-        while (getList.isAfterLast() == false) {
-            Product pr = new Product();
 
-            pr.setId(getList.getInt(getList.getColumnIndex(InventoryContract.ProductEntry._ID)));
-            pr.setName(getList.getString(getList.getColumnIndex(InventoryContract.ProductEntry.COLUMN_NAME)));
-            pr.setPrice(getList.getInt(getList.getColumnIndex(InventoryContract.ProductEntry.COLUMN_PRICE))) ;
-            pr.setQuantity(getList.getInt(getList.getColumnIndex(InventoryContract.ProductEntry.COLUMN_QUANTITY)));
-            pr.setImage(getList.getBlob(getList.getColumnIndex(InventoryContract.ProductEntry.COLUMN_IMAGE)));
-            productList.add(pr);
-            getList.moveToNext();
+        if (getList.moveToFirst() && getList!=null) {
+            while (getList.isAfterLast() == false) {
+                Product pr = new Product();
+
+                pr.setId(getList.getInt(getList.getColumnIndex(InventoryContract.ProductEntry.COLUMN_Id)));
+                pr.setName(getList.getString(getList.getColumnIndex(InventoryContract.ProductEntry.COLUMN_NAME)));
+                pr.setPrice(getList.getInt(getList.getColumnIndex(InventoryContract.ProductEntry.COLUMN_PRICE)));
+                pr.setQuantity(getList.getInt(getList.getColumnIndex(InventoryContract.ProductEntry.COLUMN_QUANTITY)));
+                pr.setImage(getList.getBlob(getList.getColumnIndex(InventoryContract.ProductEntry.COLUMN_IMAGE)));
+                productList.add(pr);
+                getList.moveToNext();
+            }
         }
+
         return productList;
     }
 
     public boolean deleteData(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(InventoryContract.ProductEntry.TABLE_NAME, "_id=?", new String[]{""+id}) > 0;
+        return db.delete(InventoryContract.ProductEntry.TABLE_NAME, "id=?", new String[]{""+id}) > 0;
     }
 }
